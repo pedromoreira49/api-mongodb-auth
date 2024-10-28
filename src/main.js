@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import loginRoute from './routes/AuthRoute.js';
 import connect from './config/Database.js';
+import userRoute from './routes/UserRoute.js';
 
 dotenv.config();
 
@@ -12,5 +13,7 @@ connect();
 app.use(express.json());
 
 app.use('/auth', loginRoute);
+
+app.use('/user', userRoute);
 
 app.listen(port, console.log('server started!'));

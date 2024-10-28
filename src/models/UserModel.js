@@ -13,11 +13,19 @@ const UserSchema = new mongoose.Schema({
   password: {
     type: String,
     required:true
+  },
+  role: {
+    type: String,
+    required: true
+  },
+  permissions: {
+    type: Array,
+    required: true,
   }
 });
 
 UserSchema.pre("save", async function (next){
-  this.password = await bcrypt.hash(this.password, 10)
+  this.password = await bcrypt.hash(this.password, 10);
   next();
 })
 
