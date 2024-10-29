@@ -14,10 +14,8 @@ export const isAdmin = (req, res, next) => {
               message: "Token Invalido mesmo!"
           })
       }
-
-      const role = decoded.role;
       
-      if (role !== "admin") {
+      if (decoded.role !== "admin") {
         return res.status(401).send({
           message: "Need more privileges!"
         })
