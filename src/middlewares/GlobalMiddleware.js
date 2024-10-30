@@ -16,7 +16,7 @@ export const isAdmin = (req, res, next) => {
           })
       }
       
-      if (decoded.role !== "admin") {
+      if (decoded.role !== "Admin") {
         return res.status(401).send({
           message: "Need more privileges!"
         })
@@ -51,7 +51,7 @@ export const hasPermission = (resource, action) => {
         if (!rolePermissions || !rolePermissions[resource]?.includes(action)) {
             return res.status(403).json({ message: 'Access denied' });
         }
-
+        req.userId = decoded.id;
         next();
       })
     } catch (err) {
