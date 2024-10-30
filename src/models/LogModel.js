@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import UserSchema from "./UserModel.js";
 
 const LogSchema = new mongoose.Schema({
   date: {
