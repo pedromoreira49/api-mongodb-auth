@@ -4,6 +4,7 @@ import loginRoute from './routes/AuthRoute.js';
 import connect from './config/Database.js';
 import userRoute from './routes/UserRoute.js';
 import workRoute from './routes/WorkRoute.js';
+import logRoute from './routes/LogRoute.js';
 
 dotenv.config();
 
@@ -18,5 +19,7 @@ app.use('/auth', loginRoute);
 app.use('/user', userRoute);
 
 app.use('/works', workRoute);
+
+app.use('/logs', logRoute);
 
 app.listen(port, console.log('server started!'));
