@@ -1,4 +1,5 @@
 import {createWorkService} from "../services/WorkService.js"
+import { saveLog } from "./LogController.js";
 
 export const createWork = async (req, res) => {
   try{
@@ -17,7 +18,7 @@ export const createWork = async (req, res) => {
             message: "Error creating Work"
         })
     }
-
+    saveLog(Date.now(), req.userId,'create', 'works', {customer, number, equip});
     res.status(201).send({
       message: "Work created successfully",
     })
